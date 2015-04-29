@@ -1,4 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using SMA.CS;
+@using System.Collections;
+@{
+   List<SelectListItem> items=new List<SelectListItem>();
+   
+   foreach(DictionaryEntry lang in GlobalVariables.languageTable)
+   {
+       SelectListItem i = new SelectListItem() { Text = lang.Key.ToString(), Value = lang.Value.ToString() };
+       if(i.Text==GlobalVariables.currentLanguage)
+       {
+           i.Selected = true;
+       }
+       items.Add(i);
+       
+   }
+   
+}
+ 
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,6 +26,7 @@
     <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+   
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -20,18 +41,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>                    
+                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("@home"), "Index", "Home")</li>
+                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("@about"), "About", "Home")</li>
+                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("@contact"), "Contact", "Home")</li>                    
                 </ul>
                                
 
                 <ul class="nav navbar-nav" style="float:right ">
-                    <li>@Html.ActionLink("Log In", "LogIn", "Home")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Home")</li>
+                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("@login"), "LogIn", "Home")</li>
+                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("@register"), "Register", "Home")</li>
                     <li>
                         <div class="dropdown navbar-right ">
-                           
+                           @Html.DropDownList("name", items, new { onchange = @"form.submit();" });
                         </div>
                     </li>
                 </ul>
