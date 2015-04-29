@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
-
+using System.Collections;
+using System.Diagnostics;
 
 namespace SMA.CS
 {
@@ -17,10 +18,8 @@ namespace SMA.CS
        static  SqlDataReader reader;
 
 
-        public static DataSet getLanguages()
+        public static void getLanguages(Hashtable t)
         {
-            DataSet ds = null;
-
             using (con=new SqlConnection(connectionString))
             {
                 using (cmd=new SqlCommand())
@@ -29,17 +28,55 @@ namespace SMA.CS
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "getLanguages";
 
-                    using (adapter = new SqlDataAdapter(cmd))
+                    try
                     {
-                        ds=new DataSet();
-                        adapter.Fill(ds);
+                        con.Open();
+                        using (reader = cmd.ExecuteReader())
+                        {
+                            t.Add(reader["languageName"], reader["languageGUID"]);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.ToString());
                     }
 
                 }
             }
+        }
 
-            return ds;
-
+        public static void setVariables(string languageGUID,Hashtable t)
+        {
+            using (con = new SqlConnection(connectionString))
+            {
+                using (cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "getTranslatedVariableValue";
+                    foreach (DictionaryEntry entry in t)
+                    {
+                        cmd.Parameters.AddWithValue("@languageGUID", languageGUID);
+                        cmd.Parameters.AddWithValue("@variableName", entry.Key);
+                        try
+                        {
+                            con.Open();
+                            using (reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    t[entry.Key] = reader["value"];
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(ex.ToString());
+                        }
+                        
+                    }
+                }
+            }
         }
     }
 

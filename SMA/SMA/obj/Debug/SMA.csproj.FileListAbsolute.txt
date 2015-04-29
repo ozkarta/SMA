@@ -1,4 +1,3 @@
-C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\bin\SMA.dll.config
 C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\bin\SMA.dll
 C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\bin\SMA.pdb
 C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\bin\Antlr3.Runtime.dll
