@@ -1,15 +1,28 @@
 ﻿use smaDataBase
 go
+delete from languages
+delete from variables
 
+declare @en as varchar(50)
+set @en=newid()
+declare @ge  varchar(50)
+set @ge =newid()
+declare @ru  varchar(50)
+set @ru=newid()
 insert into languages(languageGUID,languageName)
-values(newid(),N'English'),(newid(),N'ქართული'),(newid(),N'русский')
+values(@en,N'English'),(@ge,N'ქართული'),(@ru,N'русский')
 
 insert into variables(languageGUID,variableGUID,variableName,value)
 
-values  ('90086DAF-2AC8-40A6-ACD1-C42A8E4F2FBA',newid(),'@home','Home'),
-		('90086DAF-2AC8-40A6-ACD1-C42A8E4F2FBA',newid(),'@about','About'),
-		('90086DAF-2AC8-40A6-ACD1-C42A8E4F2FBA',newid(),'@contact','Contact'),
-		('96C0850F-C7A3-433E-A514-DFD92E963B59',newid(),'@home','სახლი'),
-		('96C0850F-C7A3-433E-A514-DFD92E963B59',newid(),'@about','ჩვენს შესახებ'),
-		('96C0850F-C7A3-433E-A514-DFD92E963B59',newid(),'@contact','საკონტაქტო ინფორმაცია')
+values  (@en,newid(),'home','Home'),
+		(@en,newid(),'about','About'),
+		(@en,newid(),'contact','Contact'),
+		(@ge,newid(),'home',N'სახლი'),
+		(@ge,newid(),'about',N'ჩვენს შესახებ'),
+		(@ge,newid(),'contact',N'საკონტაქტო ინფორმაცია')
 go
+
+
+select * from variables
+
+select * from languages
