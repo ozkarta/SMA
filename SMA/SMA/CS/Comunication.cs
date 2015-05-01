@@ -59,8 +59,8 @@ namespace SMA.CS
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "getTranslatedVariableValue";
-                   
-                        
+
+                    int counter = 0;
                         try
                         {
                             con.Open();
@@ -80,12 +80,21 @@ namespace SMA.CS
                                         while(reader.Read())
                                         {
                                             t[key] = reader[0].ToString();
+                                            counter++;
                                             Debug.WriteLine(reader[0].ToString());
                                         }
                                     }
                                     Debug.WriteLine(key+ "   -------  "+t[key].ToString());
                                 }
                             con.Close();
+                            if (counter == 0)
+                            {
+                                GlobalVariables.rollBackLanguage();
+                            }
+                            else
+                            {
+                                GlobalVariables.updateLanguage();
+                            }
                         }
                         catch (Exception ex)
                         {

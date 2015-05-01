@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using SMA.CS;
+using System.Diagnostics;
 namespace SMA.Controllers
 {
     public class HomeController : Controller
@@ -37,5 +38,17 @@ namespace SMA.Controllers
         {
             return View("LogIn");
         }
+
+        public RedirectToRouteResult translate(string currentView, string Language)
+        {
+            GlobalVariables.currentLanguageTrial = Language;
+            Debug.WriteLine("11231231231   --"+Language.ToString());
+            
+            GlobalVariables.initVariables();
+            //return View(currentView);
+            return RedirectToAction(currentView);
+        }
+
+       
     }
 }

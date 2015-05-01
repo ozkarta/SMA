@@ -1,7 +1,7 @@
 ﻿@using SMA.CS;
 @using System.Collections;
 @{
-   /*
+   
    List<SelectListItem> items=new List<SelectListItem>();
    
    foreach(DictionaryEntry lang in GlobalVariables.languageTable)
@@ -14,9 +14,8 @@
        items.Add(i);
        
    }
-   */
+   
 
-    string a = GlobalVariables.getVariableValue("ქართული");
 }
  
 
@@ -32,6 +31,9 @@
    
 </head>
 <body>
+    
+    
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -49,28 +51,28 @@
                     <li>@Html.ActionLink(GlobalVariables.getVariableValue("about"), "About", "Home")</li>
                     <li>@Html.ActionLink(GlobalVariables.getVariableValue("contact"), "Contact", "Home")</li>   
                                     
-                </ul>
-                               
-
+                </ul>   
                 <ul class="nav navbar-nav" style="float:right ">
                     
 
                     <li>@Html.ActionLink(GlobalVariables.getVariableValue("login"), "LogIn", "Home")</li>
                     <li>@Html.ActionLink(GlobalVariables.getVariableValue("register"), "Register", "Home")</li>
-                    <li>
-
-                    
-                        <div class="dropdown navbar-right ">
-                          
-                        </div>
+                    <li>                    
+                            <div class="dropdown" style="margin-top:inherit">
+                               @{        
+                                   string action=(string)ViewContext.Controller.ValueProvider.GetValue("action").RawValue;
+                                   string controller = (string)ViewContext.Controller.ValueProvider.GetValue("controller").RawValue;
+                                   string url = controller + "/" + action;
+                               }
+                            
+                               @using (Html.BeginForm(url,null,FormMethod.Post, new { id="chooser" }))
+                                {                            
+                                    @Html.DropDownList("chooser", items, new { onchange = "someLogic()" });                              
+                                }                            
+                            </div>
                     </li>
-
-                         
-                </ul>
-
-                
-            </div>
-            
+                </ul>                
+            </div>            
         </div>
     </div>
     <div class="container body-content">
@@ -81,8 +83,29 @@
         </footer>
     </div>
 
+    <script type="text/javascript">
+        function someLogic() {
+            
+            
+            var sa = $("#chooser option:selected").text().toString();
+
+
+            document.getElementById("chooser").action = "../Home/translate?currentView=@action" + "&Language="  + sa ;
+            
+            document.getElementById("chooser").submit();
+                         
+
+        }
+    </script>
+
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+
+
 </body>
 </html>
