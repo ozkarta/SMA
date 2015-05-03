@@ -1,6 +1,8 @@
-﻿
+﻿@using SMA.CS;
 @{
     ViewBag.Title = "Register";
+   
+        
 }
 
 <h2>Register</h2>
@@ -25,14 +27,33 @@
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
         	<div class="panel panel-default">
         		<div class="panel-heading">
-			    		<h3 class="panel-title">Please sign up for Bootsnipp <small>It's free!</small></h3>
+			    		<h3 class="panel-title">It's Most  usefull web application <small>  Ozzle</small></h3>
 			 			</div>
 			 			<div class="panel-body">
-			    		<form role="form">
+			    		<form role="form" method="post" action="../Home/RegisterValidation">
+                           <h4 style="color:red">@ViewBag.ErrorMessage</h4>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <h4>Default Language</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        @Html.DropDownList("defaultLanguage", GlobalVariables.languageListItems, new { text = "Default Languages" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="text" name="user_name" id="user_name" class="form-control input-sm" placeholder="User Name">
+                            </div>
+
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+			                            <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
@@ -41,7 +62,9 @@
 			    					</div>
 			    				</div>
 			    			</div>
-
+                            <div class="form-group">
+                                <input type="text" name="phone" id="phone" class="form-control input-sm" placeholder="Phone Number">
+                            </div>
 			    			<div class="form-group">
 			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
 			    			</div>
@@ -58,7 +81,29 @@
 			    					</div>
 			    				</div>
 			    			</div>
-			    			
+
+                            <!--
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 com-md-6">
+                                    <div class="form-group">                                        
+                                        <input type="text" name="country" id="country" class="form-control input-sm" placeholder="Country" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 com-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="city" id="city" class="form-control input-sm" placeholder="City" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <input type="text"   name="address1" id="address1" class="form-control input-sm" placeholder="Address Line 1">
+                            </div>
+                            <div class="form-group " >
+                                <input type="text"   name="emaaddress1il" id="address2" class="form-control input-sm" placeholder="Address Line 2">
+                            </div>
+
+                            -->
 			    			<input type="submit" value="Register" class="btn btn-info btn-block">
 			    		
 			    		</form>

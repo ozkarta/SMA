@@ -11,7 +11,7 @@ namespace SMA.CS
 {
     public static class Comunication
     {
-       static String connectionString = "Data Source=.;Initial Catalog=smaDataBase;Integrated Security=True";
+        static String connectionString = "Data Source=tcp:78.139.172.254,1973;Initial Catalog=smaDataBase;User ID=sa;Password=12qwert12";
        static  SqlConnection con;
        static  SqlDataAdapter adapter;
        static  SqlCommand cmd;
@@ -103,6 +103,77 @@ namespace SMA.CS
                         
                    }                
             }
+        }
+    
+
+        public static void  generalRegistration()
+        {
+
+        }
+
+        public static bool existsUserName(string userName)
+        {
+            bool result=true;
+            using (con=new SqlConnection(connectionString))
+            {
+                using(cmd=new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandText = "userNameValidation";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@userName",userName);
+                    try
+                    {
+                        con.Open();
+                        using (reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                if (reader[0].ToString() == "-1")
+                                {
+                                    result = true;
+                                }
+                                else
+                                {
+                                    result = false;
+                                }
+                            }
+                        }
+                        con.Close();
+                    }
+                    catch(Exception ex)
+                    {
+                        Debug.WriteLine(ex.ToString());
+                    }
+                }
+            }
+            return result;
+        }
+
+        public static bool registerUser(string defaultLanguage,string userName,string firstName ,string lastName,string phone 
+                                            ,string email ,string password ,string salt)
+        {
+            bool result = false;
+            using (con=new SqlConnection(connectionString))
+            {
+                using(cmd=new SqlCommand())
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = con;
+                    cmd.CommandText = "registerUser";
+                    cmd.Parameters.AddWithValue("@defaultLanguage", defaultLanguage);
+                    cmd.Parameters.AddWithValue("@userName",userName);
+                    cmd.Parameters.AddWithValue("@firstName",firstName);
+                    cmd.Parameters.AddWithValue("@lastName",lastName);
+                    cmd.Parameters.AddWithValue("@phone",phone);
+                    cmd.Parameters.AddWithValue("@email",email);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@salt", salt);
+
+                }
+            }
+
+            return result;
         }
     }
 

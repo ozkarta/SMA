@@ -35,3 +35,13 @@ end
 go
 
 --------------------------------------------------------------
+
+create procedure userNameValidation
+@userName  varchar(100)
+as 
+
+begin
+	if exists(select [userName] from usersGeneral where [userName]=@userName)
+		select '-1'
+	else  select '1'
+end

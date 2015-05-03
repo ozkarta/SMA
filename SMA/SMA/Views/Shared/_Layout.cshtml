@@ -2,18 +2,6 @@
 @using System.Collections;
 @{
    
-   List<SelectListItem> items=new List<SelectListItem>();
-   
-   foreach(DictionaryEntry lang in GlobalVariables.languageTable)
-   {
-       SelectListItem i = new SelectListItem() { Text = lang.Key.ToString(), Value = lang.Value.ToString() };
-       if(i.Text==GlobalVariables.currentLanguage)
-       {
-           i.Selected = true;
-       }
-       items.Add(i);
-       
-   }
    
 
 }
@@ -67,7 +55,7 @@
                             
                                @using (Html.BeginForm(url,null,FormMethod.Post, new { id="chooser" }))
                                 {                            
-                                    @Html.DropDownList("chooser", items, new { onchange = "someLogic()" });                              
+                                    @Html.DropDownList("chooser", GlobalVariables.languageListItems, new { onchange = "someLogic()" });                              
                                 }                            
                             </div>
                     </li>

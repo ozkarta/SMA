@@ -1,0 +1,10 @@
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\bin\Debug\excelImporter.exe.config
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\bin\Debug\excelImporter.exe
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\bin\Debug\excelImporter.pdb
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\obj\Debug\excelImporter.csprojResolveAssemblyReference.cache
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\obj\Debug\Interop.VBIDE.dll
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\obj\Debug\excelImporter.csproj.ResolveComReference.cache
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\obj\Debug\excelImporter.exe
+C:\Users\ozbegi\Documents\GitHub\SMA\excelImporter\excelImporter\obj\Debug\excelImporter.pdb

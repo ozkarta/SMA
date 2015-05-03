@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Collections;
+using System.Web.Mvc;
 
 namespace SMA.CS
 {
@@ -12,6 +13,8 @@ namespace SMA.CS
         public static Hashtable languageTable;
         public static string currentLanguageTrial;
         public static string currentLanguage;
+        public static List<SelectListItem> languageListItems = new List<SelectListItem>();
+
 
         public static void initVariables()
         {
@@ -30,6 +33,7 @@ namespace SMA.CS
 
             //___________________Gets_Translated_Variable_Values_From_DataBase___________________________
             Comunication.setVariables(languageTable[currentLanguageTrial].ToString(),variableTable);
+            initDropDownList();
         }
 
         static GlobalVariables()
@@ -73,6 +77,23 @@ namespace SMA.CS
          public static void updateLanguage()
          {
              currentLanguage = currentLanguageTrial.ToString();
+         }
+
+        public static void initDropDownList()
+         {
+             
+
+             foreach (DictionaryEntry lang in GlobalVariables.languageTable)
+             {
+                 SelectListItem i = new SelectListItem() { Text = lang.Key.ToString(), Value = lang.Value.ToString() };
+                 if (i.Text == GlobalVariables.currentLanguage)
+                 {
+                     i.Selected = true;
+                 }
+                 languageListItems.Add(i);
+
+             }
+   
          }
     }
 }

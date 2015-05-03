@@ -17,9 +17,13 @@ insert into variables(languageGUID,variableGUID,variableName,value)
 values  (@en,newid(),'home','Home'),
 		(@en,newid(),'about','About'),
 		(@en,newid(),'contact','Contact'),
+		(@en,newid(),'login','Log In'),
+		(@en,newid(),'register','Register'),
 		(@ge,newid(),'home',N'სახლი'),
 		(@ge,newid(),'about',N'ჩვენს შესახებ'),
-		(@ge,newid(),'contact',N'საკონტაქტო ინფორმაცია')
+		(@ge,newid(),'contact',N'საკონტაქტო ინფორმაცია'),
+		(@ge,newid(),'login',N'სისტემაში შესვლა'),
+		(@ge,newid(),'register',N'რეგისტრაცია')
 go
 
 

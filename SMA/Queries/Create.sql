@@ -31,3 +31,61 @@ create table [variables]
 )
 
 go
+create table [accessLevels]
+(
+	[levelGUID]						varchar(50) not null,
+	[level]							int not null,
+	[levelName]						varchar(50)
+)
+go
+CREATE TABLE [usersGeneral] 
+(
+
+	---------------------Autorization
+    [userGUID]                      VARCHAR (50)   NOT NULL,
+    [email]							NVARCHAR (256) not NULL,
+    [emailConfirmed]				BIT            NOT NULL,
+    [passwordHash]					NVARCHAR (MAX) not NULL,
+    [securityStamp]					NVARCHAR (MAX) not NULL,
+    [phoneNumber]					NVARCHAR (MAX) not NULL,
+    [phoneNumberConfirmed]			BIT            NOT NULL,
+    [accessFailedCount]				INT            NOT NULL,
+    [userName]						NVARCHAR (256) NOT NULL,
+	
+	---------------------General Info
+	[firstName]							Nvarchar(500) not null,
+	[lastName]							Nvarchar(1000) not null,	
+	[country]							nvarchar(100) not null,
+	[city]								nvarchar(100) not null,
+	[addressLine1]						nvarchar(1000) not null,
+	[addressLine2]						nvarchar(1000) not null,
+	
+	
+
+	[birthDate]							datetime not null,
+	[passportID]						nvarchar(20) not null,
+
+
+	--------------------Auto  Generated
+	[registerDate]						datetime  default getdate(),
+
+);
+
+go 
+create table countriesIso
+(
+	[countryGUID]				varchar(50) not null,
+	[Comman Name]				varchar(500) not null,
+	[Formal Name]				varchar(500) not null,
+	[Type]						varchar(500) not null,
+	[Capital]					varchar(500) not null,
+	[ISO 4217 Currency Code]	varchar(500) not null,
+	[ISO 4217 Currency Name]	varchar(500) not null,
+	[ITU-T Telephone Code]		varchar(100) not null,
+	[ISO 3166-12 Letter Code]   varchar(100) not null,
+	[ISO 3166-13 Letter Code]	varchar(100) not null,
+	[IANA Country Code TLD]		varchar(100) not null
+)
+
+
+GO

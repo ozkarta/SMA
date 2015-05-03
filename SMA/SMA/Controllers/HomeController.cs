@@ -31,7 +31,7 @@ namespace SMA.Controllers
 
         public ActionResult Register()
         {
-            
+            ViewBag.ErrorMessage = "";
             return View("Register");
         }
         public ActionResult LogIn()
@@ -48,7 +48,48 @@ namespace SMA.Controllers
             //return View(currentView);
             return RedirectToAction(currentView);
         }
-
+        [HttpPost]
+        public ActionResult RegisterValidation()
+        {
+            string defaultLanguage = Request["defaultLanguage"].ToString();
+            string userName = Request["user_name"].ToString();
+            string firstName = Request["first_name"].ToString();
+            string lastName = Request["last_name"].ToString();
+            string phone = Request["phone"].ToString();
+            string email = Request["email"].ToString();
+            string password = Request["password"].ToString();
+            string passwordConfirmation = Request["password_confirmation"].ToString();
+            Comunication.existsUserName(userName);
+            
+            if(GlobalMethods.isValidMail(email))
+            {
+                if (GlobalMethods.isValidPassword(password, passwordConfirmation))
+                {
+                   if(!GlobalMethods.userNameValidation(userName))
+                   {
+                       ViewBag.ErrorMessage = "";
+                       GlobalMethods.registerUser(defaultLanguage, userName, firstName, lastName, phone, email, password);
+                       return View("RegisterValidation");
+                   }
+                   else
+                   {
+                        ViewBag.ErrorMessage = "User name you entered already exists";
+                        return View("Register");
+                   }
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "The Passwords you entered DON'T  match";
+                    return View("Register");
+                }
+                
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "The Mail Is Incorrect";
+                return View("Register");
+            }
+        }
        
     }
 }
