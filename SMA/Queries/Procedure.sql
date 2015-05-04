@@ -45,3 +45,23 @@ begin
 		select '-1'
 	else  select '1'
 end
+
+go
+-------------------------------------------------------------
+
+
+create procedure registerUser
+@defaultLanguage nvarchar(100),
+@userName nvarchar(500),
+@firstName nvarchar(500),
+@lastName nvarchar(500),
+@phone varchar(100),
+@email varchar(500),
+@passwordHash varchar(max),
+@salt varchar(max)
+as
+begin
+	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],							Nvarchar(500) not null,
+	[lastName],[country],[city]	,[addressLine1]	,[addressLine2]	[birthDate],[passportID],[registerDate]	)
+	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','','')
+end

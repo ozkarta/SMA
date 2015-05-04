@@ -8,7 +8,7 @@ go
 
 CREATE DATABASE smaDataBase
 go
-
+		
 use smaDataBase
 go
 
@@ -40,16 +40,17 @@ create table [accessLevels]
 go
 CREATE TABLE [usersGeneral] 
 (
-
+	[LanguageGUID]					varchar(50) not null,						--  As  Default Language  
+	[userGUID]                      VARCHAR (50)   NOT NULL default newid(),
 	---------------------Autorization
-    [userGUID]                      VARCHAR (50)   NOT NULL,
+    
     [email]							NVARCHAR (256) not NULL,
-    [emailConfirmed]				BIT            NOT NULL,
+    [emailConfirmed]				BIT            NOT NULL default 0,
     [passwordHash]					NVARCHAR (MAX) not NULL,
-    [securityStamp]					NVARCHAR (MAX) not NULL,
+    [salt]					NVARCHAR (MAX) not NULL,
     [phoneNumber]					NVARCHAR (MAX) not NULL,
-    [phoneNumberConfirmed]			BIT            NOT NULL,
-    [accessFailedCount]				INT            NOT NULL,
+    [phoneNumberConfirmed]			BIT            NOT NULL DEFAULT 0,
+    [accessFailedCount]				INT            NOT NULL default 0,
     [userName]						NVARCHAR (256) NOT NULL,
 	
 	---------------------General Info

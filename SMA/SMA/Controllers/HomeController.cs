@@ -51,6 +51,7 @@ namespace SMA.Controllers
         [HttpPost]
         public ActionResult RegisterValidation()
         {
+            
             string defaultLanguage = Request["defaultLanguage"].ToString();
             string userName = Request["user_name"].ToString();
             string firstName = Request["first_name"].ToString();
@@ -59,7 +60,6 @@ namespace SMA.Controllers
             string email = Request["email"].ToString();
             string password = Request["password"].ToString();
             string passwordConfirmation = Request["password_confirmation"].ToString();
-            Comunication.existsUserName(userName);
             
             if(GlobalMethods.isValidMail(email))
             {
@@ -79,7 +79,7 @@ namespace SMA.Controllers
                 }
                 else
                 {
-                    ViewBag.ErrorMessage = "The Passwords you entered DON'T  match";
+                    ViewBag.ErrorMessage = "The Password is incorrect";
                     return View("Register");
                 }
                 
@@ -90,6 +90,11 @@ namespace SMA.Controllers
                 return View("Register");
             }
         }
-       
+
+
+        public ActionResult LogInValidation()
+        {
+            return View("LogInValidation");
+        }
     }
 }

@@ -167,7 +167,7 @@ namespace SMA.CS
                     cmd.Parameters.AddWithValue("@lastName",lastName);
                     cmd.Parameters.AddWithValue("@phone",phone);
                     cmd.Parameters.AddWithValue("@email",email);
-                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@passwordHash", password);
                     cmd.Parameters.AddWithValue("@salt", salt);
 
                 }
