@@ -67,9 +67,18 @@ namespace SMA.Controllers
                 {
                    if(!GlobalMethods.userNameValidation(userName))
                    {
-                       ViewBag.ErrorMessage = "";
-                       GlobalMethods.registerUser(defaultLanguage, userName, firstName, lastName, phone, email, password);
-                       return View("RegisterValidation");
+                      
+                       if (GlobalMethods.registerUser(defaultLanguage, userName, firstName, lastName, phone, email, password))
+                       {
+                           ViewBag.ErrorMessage = "";
+                           return View("RegisterValidation");
+                       }
+                       else
+                       {
+                           ViewBag.ErrorMessage = "There was error registerring the user, Please try later.";
+                           return View("Register");   
+                       }
+                       
                    }
                    else
                    {

@@ -106,11 +106,7 @@ namespace SMA.CS
         }
     
 
-        public static void  generalRegistration()
-        {
-
-        }
-
+       
         public static bool existsUserName(string userName)
         {
             bool result=true;
@@ -150,10 +146,9 @@ namespace SMA.CS
             return result;
         }
 
-        public static bool registerUser(string defaultLanguage,string userName,string firstName ,string lastName,string phone 
+        public static bool generalRegistration(string defaultLanguage,string userName,string firstName ,string lastName,string phone 
                                             ,string email ,string password ,string salt)
         {
-            bool result = false;
             using (con=new SqlConnection(connectionString))
             {
                 using(cmd=new SqlCommand())
@@ -170,10 +165,23 @@ namespace SMA.CS
                     cmd.Parameters.AddWithValue("@passwordHash", password);
                     cmd.Parameters.AddWithValue("@salt", salt);
 
+                    try
+                    {
+                        con.Open();
+
+                        cmd.ExecuteScalar();
+                        con.Close();
+                        return true;
+                    }
+                    catch(Exception ex)
+                    {
+                        Debug.WriteLine(ex.ToString());
+                        return false;
+                    }
                 }
             }
 
-            return result;
+            
         }
     }
 

@@ -49,12 +49,12 @@ namespace SMA.CS
         {
             return (Comunication.existsUserName(userName)) ;
         }
-        public static void registerUser(string defaultLanguage,string userName,string firstName ,string lastName,string phone 
+        public static bool registerUser(string defaultLanguage,string userName,string firstName ,string lastName,string phone 
                                                                                             ,string email ,string password )
         {
             string salt = generateSalt();
             string hashedPswd = generateHashedPSWD(password, salt);
-            Comunication.registerUser(defaultLanguage, userName, firstName, lastName, phone, email, hashedPswd, salt);
+            return Comunication.generalRegistration(defaultLanguage, userName, firstName, lastName, phone, email, hashedPswd, salt);
             //Debug.WriteLine(hashedPassword);
             //Debug.WriteLine();
         }
@@ -63,7 +63,7 @@ namespace SMA.CS
 
 
 
-        //_____________________________________________________________________________________________________
+        //_______________________________HASHING______________________________________________________________________
 
 
 

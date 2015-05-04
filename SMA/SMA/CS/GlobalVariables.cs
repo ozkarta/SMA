@@ -35,7 +35,23 @@ namespace SMA.CS
             Comunication.setVariables(languageTable[currentLanguageTrial].ToString(),variableTable);
             initDropDownList();
         }
+        public static void initDropDownList()
+        {
+            languageListItems.Clear();
 
+            foreach (DictionaryEntry lang in GlobalVariables.languageTable)
+            {
+                
+                SelectListItem i = new SelectListItem() { Text = lang.Key.ToString(), Value = lang.Value.ToString() };
+                if (i.Text == GlobalVariables.currentLanguage)
+                {
+                    i.Selected = true;
+                }
+                languageListItems.Add(i);
+
+            }
+
+        }
         static GlobalVariables()
         {
             variableTable = new Hashtable();
@@ -79,21 +95,6 @@ namespace SMA.CS
              currentLanguage = currentLanguageTrial.ToString();
          }
 
-        public static void initDropDownList()
-         {
-             
-
-             foreach (DictionaryEntry lang in GlobalVariables.languageTable)
-             {
-                 SelectListItem i = new SelectListItem() { Text = lang.Key.ToString(), Value = lang.Value.ToString() };
-                 if (i.Text == GlobalVariables.currentLanguage)
-                 {
-                     i.Selected = true;
-                 }
-                 languageListItems.Add(i);
-
-             }
-   
-         }
+       
     }
 }
