@@ -25,7 +25,7 @@ namespace SMA.CS
             {
                 MailAddress ad = new MailAddress(mail);
                 ad = null;
-                return true;
+                return !Comunication.existsEMail(mail);
             }
             catch (Exception ex)
             {

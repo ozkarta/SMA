@@ -43,8 +43,8 @@
                 <ul class="nav navbar-nav" style="float:right ">
                     
 
-                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("login"), "LogIn", "Home")</li>
-                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("register"), "Register", "Home")</li>
+                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("login"), "LogIn", "Account")</li>
+                    <li>@Html.ActionLink(GlobalVariables.getVariableValue("register"), "Register", "Account")</li>
                     <li>                    
                             <div class="dropdown" style="margin-top:inherit">
                                @{        
@@ -76,9 +76,9 @@
             
             
             var sa = $("#chooser option:selected").text().toString();
-
-
-            document.getElementById("chooser").action = "../Home/translate?currentView=@action" + "&Language="  + sa ;
+            var actionUrl = "../Home/translate?currentView=@action" + "&currentController=@controller" + "&Language=" + sa;
+           // alert(actionUrl);
+            document.getElementById("chooser").action = actionUrl;
             
             document.getElementById("chooser").submit();
                          

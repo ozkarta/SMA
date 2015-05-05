@@ -48,7 +48,18 @@ end
 
 go
 -------------------------------------------------------------
+create procedure mailValidation
+@mail varchar(100)
+as 
 
+begin
+	if exists(select [email] from usersGeneral where [email]=@mail)
+		select '-1'
+	else  select '1'
+end
+
+go
+-------------------------------------------------
 
 create procedure registerUser
 @defaultLanguage nvarchar(100),
@@ -61,7 +72,27 @@ create procedure registerUser
 @salt varchar(max)
 as
 begin
-	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],							Nvarchar(500) not null,
-	[lastName],[country],[city]	,[addressLine1]	,[addressLine2]	[birthDate],[passportID],[registerDate]	)
-	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','','')
+
+declare @userGUID varchar(50)
+set @userGUID=newid()
+	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],
+	[lastName],[country],[city]	,[addressLine1]	,[addressLine2]	,[birthDate],[passportID],[registerDate]	)
+	values(@defaultLanguage,@userGUID,@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','','')
+	select @userGUID;
 end
+go
+
+
+------------------------------------------------------
+
+
+create procedure activateUser
+@userGUID varchar(50)
+as
+begin
+	update  usersGeneral
+		set	emailConfirmed=1	where userGUID=@userGUID
+			
+end
+go
+------------------------------------------------

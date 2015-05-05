@@ -29,4 +29,3 @@ C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\bin\System.Web.Http.WebHost.xml
 C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\obj\Debug\SMA.csprojResolveAssemblyReference.cache
 C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\obj\Debug\SMA.dll
 C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\obj\Debug\SMA.pdb
-C:\Users\ozbegi\Documents\GitHub\SMA\SMA\SMA\bin\SMA.dll.config
