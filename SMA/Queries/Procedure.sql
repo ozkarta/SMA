@@ -61,7 +61,11 @@ create procedure registerUser
 @salt varchar(max)
 as
 begin
-	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],							Nvarchar(500) not null,
-	[lastName],[country],[city]	,[addressLine1]	,[addressLine2]	[birthDate],[passportID],[registerDate]	)
-	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','','')
+	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],	
+	[lastName],[country],[city]	,[addressLine1]	,[addressLine2],[birthDate],[passportID],[registerDate]	)
+	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','',getdate())
 end
+
+go
+
+----------------------------------
