@@ -1,6 +1,10 @@
 ﻿using SMA.CS;
 using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using System.Diagnostics;
+>>>>>>> origin/master
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,12 +13,23 @@ namespace SMA.Controllers
 {
     public class AccountController : Controller
     {
+<<<<<<< HEAD
         // GET: Account
+=======
+        //
+        // GET: /Account/
+>>>>>>> origin/master
         public ActionResult Index()
         {
             return View();
         }
 
+<<<<<<< HEAD
+=======
+
+
+       
+>>>>>>> origin/master
         [HttpPost]
         public ActionResult RegisterValidation()
         {
@@ -82,6 +97,16 @@ namespace SMA.Controllers
         {
             return View("LogIn");
         }
+<<<<<<< HEAD
 
     }
+=======
+        public RedirectToRouteResult EmailConfirmation()
+        {
+            string userGUID=Request["userGUID"].ToString();
+            Comunication.activateUser(userGUID);
+            return RedirectToAction("Index","Home");
+        }
+	}
+>>>>>>> origin/master
 }

@@ -76,11 +76,17 @@
             
             
             var sa = $("#chooser option:selected").text().toString();
+<<<<<<< HEAD
 
             alert("@controller");
             var urlstring = "../Home/translate?currentView=@action.ToString()" + "&Language=" + sa + "&controller=@controller.ToString()";
             alert(urlstring);
             document.getElementById("chooser").action = urlstring;
+=======
+            var actionUrl = "../Home/translate?currentView=@action" + "&currentController=@controller" + "&Language=" + sa;
+           // alert(actionUrl);
+            document.getElementById("chooser").action = actionUrl;
+>>>>>>> origin/master
             
             document.getElementById("chooser").submit();
                          

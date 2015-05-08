@@ -29,16 +29,27 @@ namespace SMA.Controllers
             return View();
         }
 
+<<<<<<< HEAD
        
         public RedirectToRouteResult translate(string currentView, string Language,string controller)
+=======
+      
+        public RedirectToRouteResult translate(string currentView, string currentController, string Language)
+>>>>>>> origin/master
         {
             GlobalVariables.currentLanguageTrial = Language;
-            Debug.WriteLine("11231231231   --"+Language.ToString());
-            
+            //Debug.WriteLine("11231231231   --" + Language.ToString());
+
             GlobalVariables.initVariables();
             //return View(currentView);
+<<<<<<< HEAD
             return RedirectToAction(currentView);
         }
       
+=======
+            return RedirectToAction(currentView, currentController);
+        }
+       
+>>>>>>> origin/master
     }
 }
