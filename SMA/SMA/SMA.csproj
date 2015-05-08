@@ -171,6 +171,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\RegisterValidation.cshtml" />
@@ -184,13 +185,18 @@
 >>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
 >>>>>>> parent of 15be318... 9:38_5.6.2015
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\RegisterValidation.cshtml" />
     <Content Include="Views\Home\LogInValidation.cshtml" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
 >>>>>>> parent of 15be318... 9:38_5.6.2015
 =======

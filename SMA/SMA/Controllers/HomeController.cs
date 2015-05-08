@@ -33,6 +33,7 @@ namespace SMA.Controllers
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
        
         public RedirectToRouteResult translate(string currentView, string Language,string controller)
 =======
@@ -40,6 +41,8 @@ namespace SMA.Controllers
         public RedirectToRouteResult translate(string currentView, string currentController, string Language)
 >>>>>>> origin/master
 =======
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
 >>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
@@ -57,7 +60,10 @@ namespace SMA.Controllers
         public RedirectToRouteResult translate(string currentView, string Language)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
 >>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
@@ -74,6 +80,7 @@ namespace SMA.Controllers
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       
 =======
             return RedirectToAction(currentView, currentController);
@@ -81,6 +88,8 @@ namespace SMA.Controllers
        
 >>>>>>> origin/master
 =======
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
 >>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
@@ -144,7 +153,10 @@ namespace SMA.Controllers
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
 >>>>>>> parent of 15be318... 9:38_5.6.2015
 =======
