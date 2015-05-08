@@ -8,10 +8,13 @@
     <WebStackScaffolding_LayoutPageFile />
     <NameOfLastUsedPublishProfile>SMA</NameOfLastUsedPublishProfile>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <WebStackScaffolding_ControllerDialogWidth>600</WebStackScaffolding_ControllerDialogWidth>
 =======
 >>>>>>> origin/master
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+=======
+>>>>>>> origin/master
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

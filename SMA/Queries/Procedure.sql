@@ -73,6 +73,7 @@ create procedure registerUser
 as
 begin
 <<<<<<< HEAD
+<<<<<<< HEAD
 	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],	
 	[lastName],[country],[city]	,[addressLine1]	,[addressLine2],[birthDate],[passportID],[registerDate]	)
 	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','',getdate())
@@ -106,4 +107,10 @@ begin
 end
 go
 ------------------------------------------------
+>>>>>>> origin/master
+=======
+	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],							Nvarchar(500) not null,
+	[lastName],[country],[city]	,[addressLine1]	,[addressLine2]	[birthDate],[passportID],[registerDate]	)
+	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','','')
+end
 >>>>>>> origin/master
