@@ -169,6 +169,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\RegisterValidation.cshtml" />
@@ -178,11 +179,16 @@
     <Content Include="Views\Account\EmailConfirmation.cshtml" />
 >>>>>>> origin/master
 =======
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\RegisterValidation.cshtml" />
     <Content Include="Views\Home\LogInValidation.cshtml" />
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

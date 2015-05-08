@@ -31,6 +31,7 @@ namespace SMA.Controllers
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
        
         public RedirectToRouteResult translate(string currentView, string Language,string controller)
 =======
@@ -38,6 +39,8 @@ namespace SMA.Controllers
         public RedirectToRouteResult translate(string currentView, string currentController, string Language)
 >>>>>>> origin/master
 =======
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
         public ActionResult Register()
         {
             ViewBag.ErrorMessage = "";
@@ -49,7 +52,10 @@ namespace SMA.Controllers
         }
 
         public RedirectToRouteResult translate(string currentView, string Language)
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
         {
             GlobalVariables.currentLanguageTrial = Language;
             //Debug.WriteLine("11231231231   --" + Language.ToString());
@@ -60,6 +66,7 @@ namespace SMA.Controllers
             return RedirectToAction(currentView);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
       
 =======
             return RedirectToAction(currentView, currentController);
@@ -67,6 +74,8 @@ namespace SMA.Controllers
        
 >>>>>>> origin/master
 =======
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
         [HttpPost]
         public ActionResult RegisterValidation()
         {
@@ -124,6 +133,9 @@ namespace SMA.Controllers
         {
             return View("LogInValidation");
         }
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 15be318... 9:38_5.6.2015
     }
 }

@@ -74,6 +74,7 @@ as
 begin
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],	
 	[lastName],[country],[city]	,[addressLine1]	,[addressLine2],[birthDate],[passportID],[registerDate]	)
 	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','',getdate())
@@ -114,3 +115,9 @@ go
 	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','','')
 end
 >>>>>>> origin/master
+=======
+	insert into usersGeneral ([languageGUID],[userGUID],[email],[emailConfirmed],[passwordHash],[salt], [phoneNumber],	[phoneNumberConfirmed]	, [accessFailedCount], [userName],[firstName],							Nvarchar(500) not null,
+	[lastName],[country],[city]	,[addressLine1]	,[addressLine2]	[birthDate],[passportID],[registerDate]	)
+	values(@defaultLanguage,newid(),@email,0,@passwordHash,@salt,@phone,0,0,@userName,@firstName,@lastName,'','','','','','','')
+end
+>>>>>>> parent of 15be318... 9:38_5.6.2015
